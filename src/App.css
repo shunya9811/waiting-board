@@ -1,0 +1,117 @@
+.App {
+  margin: 0 5rem;
+}
+
+.waitingPage{
+  text-align: center;
+}
+
+.customerInput{
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem 9rem 5.5rem 9rem;
+}
+
+.nameInput{
+  font-size: 20px;
+  width: 150px;
+}
+
+.numberInput{
+  font-size: 20px;
+  width: 100px;
+}
+
+.tableInput{
+  font-size: 20px;
+}
+
+.inputBtn{
+  font-size: 23px;
+  font-weight: 700;
+  width: 180px;
+  background-color: rgb(83, 83, 245);
+  border-color: azure;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.waitingTablePage{
+  padding: 0 6rem 3rem 6rem;
+} 
+
+.waitingTableTitle{
+  text-align: left;
+  margin-left: 5rem;
+}
+
+.table{
+  border: 3px solid #333;
+  margin-left: 4rem;
+}
+
+td {
+  border: 3px solid #333;
+  width: 210px;
+  height: 25px;
+  text-align: end;
+  font-size: 23px;
+}
+
+thead {
+  background-color: rgb(83, 83, 245);
+  color: #fff;
+}
+
+.tableDisplay{
+  display: flex;
+  justify-content: space-around;
+}
+
+.btnDisplay{
+  margin: 2rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cancelBtn{
+  font-size: 20px;
+  font-weight: 700;
+  width: 100px;
+  margin: 1px;
+  border-color: rgb(83, 83, 245);
+  border-radius: 10px;
+  background-color: #fff;
+  color: rgb(83, 83, 245);
+}
+
+.guidanceBtn{
+  font-size: 20px;
+  font-weight: 700;
+  width: 80px;
+  margin: 1px;
+  border-color: rgb(83, 83, 245);
+  border-radius: 10px;
+  background-color: #fff;
+  color: rgb(83, 83, 245);
+}
+
+.eatingPage{
+  padding: 0 6rem 3rem 6rem;
+}
+
+.eatingTitle{
+  text-align: left;
+  margin-left: 5rem;
+}
+
+.checkBtn{
+  font-size: 20px;
+  font-weight: 700;
+  width: 180px;
+  margin: 1px;
+  border-color: rgb(83, 83, 245);
+  border-radius: 10px;
+  background-color: #fff;
+  color: rgb(83, 83, 245);
+}
