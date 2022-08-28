@@ -61,27 +61,22 @@ class WaitingInput extends React.Component{
 }
 
 class Wating extends React.Component{
-  displayCustomer(){
-    const customer = [];
-    for (let i = 0; i < this.props.wating.length; i++){
-      customer.push(<tr
-                      key={i}
-                      >
-                      <td>{this.props.wating[i].name}</td>
-                      <td>{this.props.wating[i].number}</td>
-                      <td>{this.props.wating[i].table}</td>
-                      <div className='buttonDisplay'>
-                        <button className='cancelBtn'>取り消し</button>
-                        <button className='guidanceBtn'>案内</button>
-                      </div>
-                    </tr>)
-    }
-    return customer;
+  constructor(props){
+    super(props)
+    this.handleCancel = this.handleCancel.bind(this)
+    this.handleGuidance = this.handleGuidance.bind(this)
   }
 
-  
-  
+  handleCancel(index){
+    this.props.cancel(index)
+  }
+
+  handleGuidance(index){
+    this.props.guidance(index)
+  }
+
   render(){
+    let wating = this.props.wating
     return (
       <>
         <div className='tableDisplay'>
@@ -94,25 +89,17 @@ class Wating extends React.Component{
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td >高橋</td>
-                <td >3</td>
-                <td >テーブル</td>
-                <div className='buttonDisplay'>
-                  <button className='cancelBtn'>取り消し</button>
-                  <button className='guidanceBtn'>案内</button>
-                </div>
-              </tr>
-              <tr>
-                <td >佐藤</td>
-                <td >4</td>
-                <td >カウンター</td>
-                <div className='buttonDisplay'>
-                  <button className='cancelBtn'>取り消し</button>
-                  <button className='guidanceBtn'>案内</button>
-                </div>
-              </tr>
-              {this.displayCustomer()}
+              {wating.map((customer, index) => 
+                <tr key={index}>
+                  <td>{customer.name}</td>
+                  <td>{customer.number}</td>
+                  <td>{customer.table}</td>
+                  <div className='buttonDisplay'>
+                    <button className='cancelBtn' onClick={() => this.handleCancel(index)}>取り消し</button>
+                    <button className='guidanceBtn' onClick={() => this.handleGuidance(index)}>案内</button>
+                  </div>
+                </tr>
+              )}
             </tbody>
           </table>
           
@@ -123,26 +110,17 @@ class Wating extends React.Component{
 }
 
 class Eating extends React.Component{
-  handleCheck(e){
-    this.props.check(e.target.key)
+  constructor(props){
+    super(props)
+    this.handleCheck = this.handleCheck.bind(this)
   }
   
-  displayDiner(){
-    const diner = [];
-    for (let i = 0; i < this.props.eating.length; i++){
-      diner.push(<tr
-                  key={i}
-                  >
-                    <td >{this.props.eating[i].name}</td>
-                    <td >{this.props.eating[i].number}</td>
-                    <td >{this.props.eating[i].table  }</td>
-                    <button className='checkBtn' >お会計(退店)</button>
-                  </tr>) 
-    }
-    return diner
+  handleCheck(index){
+    this.props.check(index)
   }
 
   render(){
+    let eating = this.props.eating
     return(
       <>
         <table className='table'>
@@ -154,22 +132,17 @@ class Eating extends React.Component{
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td >高橋</td>
-              <td >3</td>
-              <td >テーブル</td>
-              <button className='checkBtn'>お会計(退店)</button>
-            </tr>
-            <tr>
-              <td >佐藤</td>
-              <td >4</td>
-              <td >カウンター</td>
-              <button className='checkBtn'>お会計(退店)</button>
-            </tr>
-            {this.displayDiner()}
+            {eating.map((diner, index) => 
+              <tr key={index}>
+                <td>{diner.name}</td>
+                <td>{diner.number}</td>
+                <td>{diner.table}</td>
+                <button className='checkBtn' onClick={() => this.handleCheck(index)}>お会計(退店)</button>
+                {/*onClickにおいて、引数を与える場合は、アロー関数で関数定義する形にする*/}
+              </tr>
+            )}
           </tbody>
         </table>
-        
       </>
     )
   }
@@ -179,10 +152,13 @@ class App extends React.Component{
   constructor(props){
     super(props)
     this.state = ({
-      wating: [{name: "高橋", number: "3", table: "どちらでも可"}],
-      eating: [{name: "高橋", number: "3", table: "どちらでも可"}]
+      wating: [],
+      eating: []
     })
     this.inputCustomer = this.inputCustomer.bind(this)
+    this.cancel = this.cancel.bind(this)
+    this.guidance = this.guidance.bind(this)
+    this.check = this.check.bind(this)
   }
 
   inputCustomer(name, number, table){
@@ -192,9 +168,30 @@ class App extends React.Component{
     })
   }
 
-  check(index){
+  cancel(index){
+    const arr = this.state.wating.concat()
+    arr.splice(index, 1)
     this.setState({
-      eating: this.state.eating.splice(index, 1)
+      wating: arr
+    })
+  }
+
+  guidance(index){
+    const arr = this.state.wating.concat()
+    const diner = arr[index]
+    arr.splice(index, 1)
+    this.setState({
+      wating: arr,
+      eating: this.state.eating.concat(diner)
+    })
+  }
+
+  check(index){
+    //Object.assign形式だと配列ではないので、配列になおしてやる必要がでる
+    const arr = this.state.eating.concat()
+    arr.splice(index, 1)
+    this.setState({
+      eating: arr
     })
   }
 
@@ -213,6 +210,8 @@ class App extends React.Component{
           <h2 className='waitingTableTitle'>順番待ち</h2>
           <Wating 
             wating = {this.state.wating}
+            cancel = {this.cancel}
+            guidance = {this.guidance}
           />
         </div>
         <hr width="100%" align="center" color='blue' size='4'></hr>
