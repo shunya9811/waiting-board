@@ -45,10 +45,7 @@
   margin-left: 5rem;
 }
 
-.table{
-  border: 3px solid #333;
-  margin-left: 4rem;
-}
+
 
 td {
   border: 3px solid #333;
@@ -66,12 +63,6 @@ thead {
 .tableDisplay{
   display: flex;
   justify-content: space-around;
-}
-
-.btnDisplay{
-  margin: 2rem 2rem 0 2rem;
-  display: flex;
-  flex-direction: column;
 }
 
 .cancelBtn{
@@ -109,9 +100,14 @@ thead {
   font-size: 20px;
   font-weight: 700;
   width: 180px;
-  margin: 1px;
+  margin: 1px 1px 1px 2rem;
   border-color: rgb(83, 83, 245);
   border-radius: 10px;
   background-color: #fff;
   color: rgb(83, 83, 245);
+}
+
+.buttonDisplay{
+  display: flex;
+  margin: 0 2rem;
 }
