@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/apple-product-list/static/css/main.3f30c5cb.css",
-    "main.js": "/apple-product-list/static/js/main.315e36c6.js",
-    "static/js/787.377fef46.chunk.js": "/apple-product-list/static/js/787.377fef46.chunk.js",
-    "index.html": "/apple-product-list/index.html",
-    "main.3f30c5cb.css.map": "/apple-product-list/static/css/main.3f30c5cb.css.map",
-    "main.315e36c6.js.map": "/apple-product-list/static/js/main.315e36c6.js.map",
-    "787.377fef46.chunk.js.map": "/apple-product-list/static/js/787.377fef46.chunk.js.map"
+    "main.css": "/waiting-board/static/css/main.3f30c5cb.css",
+    "main.js": "/waiting-board/static/js/main.f8d19d34.js",
+    "static/js/787.377fef46.chunk.js": "/waiting-board/static/js/787.377fef46.chunk.js",
+    "index.html": "/waiting-board/index.html",
+    "main.3f30c5cb.css.map": "/waiting-board/static/css/main.3f30c5cb.css.map",
+    "main.f8d19d34.js.map": "/waiting-board/static/js/main.f8d19d34.js.map",
+    "787.377fef46.chunk.js.map": "/waiting-board/static/js/787.377fef46.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f30c5cb.css",
-    "static/js/main.315e36c6.js"
+    "static/js/main.f8d19d34.js"
   ]
 }
