@@ -76,7 +76,7 @@ class Wating extends React.Component{
   }
 
   render(){
-    let wating = this.props.wating
+    let waiting = this.props.waiting
     return (
       <>
         <div className='tableDisplay'>
@@ -89,7 +89,7 @@ class Wating extends React.Component{
               </tr>
             </thead>
             <tbody>
-              {wating.map((customer, index) => 
+              {waiting.map((customer, index) => 
                 <tr key={index}>
                   <td>{customer.name}</td>
                   <td>{customer.number}</td>
@@ -152,7 +152,7 @@ class App extends React.Component{
   constructor(props){
     super(props)
     this.state = ({
-      wating: [],
+      waiting: [],
       eating: []
     })
     this.inputCustomer = this.inputCustomer.bind(this)
@@ -164,24 +164,24 @@ class App extends React.Component{
   inputCustomer(name, number, table){
     this.setState({
       //pushはできない 結合するconcatを使う
-      wating: this.state.wating.concat({name, number, table})
+      waiting: this.state.waiting.concat({name, number, table})
     })
   }
 
   cancel(index){
-    const arr = this.state.wating.concat()
+    const arr = this.state.waiting.concat()
     arr.splice(index, 1)
     this.setState({
-      wating: arr
+      waiting: arr
     })
   }
 
   guidance(index){
-    const arr = this.state.wating.concat()
+    const arr = this.state.waiting.concat()
     const diner = arr[index]
     arr.splice(index, 1)
     this.setState({
-      wating: arr,
+      waiting: arr,
       eating: this.state.eating.concat(diner)
     })
   }
@@ -209,7 +209,7 @@ class App extends React.Component{
         <div className='waitingTablePage'>
           <h2 className='waitingTableTitle'>順番待ち</h2>
           <Wating 
-            wating = {this.state.wating}
+            waiting = {this.state.waiting}
             cancel = {this.cancel}
             guidance = {this.guidance}
           />
