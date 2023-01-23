@@ -68,7 +68,7 @@ thead {
 .cancelBtn{
   font-size: 20px;
   font-weight: 700;
-  width: 100px;
+  width: 100%;
   margin: 1px;
   border-color: rgb(83, 83, 245);
   border-radius: 10px;
@@ -79,7 +79,7 @@ thead {
 .guidanceBtn{
   font-size: 20px;
   font-weight: 700;
-  width: 80px;
+  width: 100%;
   margin: 1px;
   border-color: rgb(83, 83, 245);
   border-radius: 10px;
@@ -99,8 +99,8 @@ thead {
 .checkBtn{
   font-size: 20px;
   font-weight: 700;
-  width: 180px;
-  margin: 1px 1px 1px 2rem;
+  width: 100%;
+  margin: 1px;
   border-color: rgb(83, 83, 245);
   border-radius: 10px;
   background-color: #fff;
@@ -108,6 +108,14 @@ thead {
 }
 
 .buttonDisplay{
-  display: flex;
-  margin: 0 2rem;
+  display: flex;  
+}
+
+.btnTh{
+  background-color: white;
+  border: none;
+}
+
+.btnTd{
+  border: none;
 }

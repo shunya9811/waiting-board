@@ -86,6 +86,7 @@ class Wating extends React.Component{
                 <th >名前</th>
                 <th >人数</th>
                 <th >テーブル</th>
+                <th className='btnTh'></th>
               </tr>
             </thead>
             <tbody>
@@ -94,10 +95,12 @@ class Wating extends React.Component{
                   <td>{customer.name}</td>
                   <td>{customer.number}</td>
                   <td>{customer.table}</td>
-                  <div className='buttonDisplay'>
-                    <button className='cancelBtn' onClick={() => this.handleCancel(index)}>取り消し</button>
-                    <button className='guidanceBtn' onClick={() => this.handleGuidance(index)}>案内</button>
-                  </div>
+                  <td className='btnTd'>
+                    <div className='buttonDisplay'>
+                      <button className='cancelBtn' onClick={() => this.handleCancel(index)}>取り消し</button>
+                      <button className='guidanceBtn' onClick={() => this.handleGuidance(index)}>案内</button>
+                    </div>
+                  </td>
                 </tr>
               )}
             </tbody>
@@ -129,6 +132,7 @@ class Eating extends React.Component{
               <th >名前</th>
               <th >人数</th>
               <th >テーブル</th>
+              <th className='btnTh'></th>
             </tr>
           </thead>
           <tbody>
@@ -137,8 +141,10 @@ class Eating extends React.Component{
                 <td>{diner.name}</td>
                 <td>{diner.number}</td>
                 <td>{diner.table}</td>
-                <button className='checkBtn' onClick={() => this.handleCheck(index)}>お会計(退店)</button>
-                {/*onClickにおいて、引数を与える場合は、アロー関数で関数定義する形にする*/}
+                <td className='btnTd'>
+                  <button className='checkBtn' onClick={() => this.handleCheck(index)}>お会計(退店)</button>
+                  {/*onClickにおいて、引数を与える場合は、アロー関数で関数定義する形にする*/}
+                </td>
               </tr>
             )}
           </tbody>
